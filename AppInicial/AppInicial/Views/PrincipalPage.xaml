@@ -1,31 +1,71 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="AppInicial.Views.PrincipalPage">
+             x:Class="AppInicial.Views.PrincipalPage"
+             Title="Cadastro">
+        
     <ContentPage.Content>
-        <StackLayout>
-        <Label
-                Margin="5"
-                Text="Cadastro"
-                FontSize="Large"/>
-            <Entry
+        <ScrollView>
+            <StackLayout>
+                <Entry
                 Placeholder="Nome"
                 x:Name="nomePessoa"/>
-            <Entry
+                <Entry
                 Placeholder="CPF"
                 x:Name="cpfPessoa"/>
-            <Button
-                Text="Adicionar"
+                <Button
+                TextColor="White"
+                BackgroundColor="#58ab41"
+                Text="ADICIONAR"
                 x:Name="btnAdicionar"/>
-            <ListView
+                <BoxView
+                HeightRequest="1"
+                BackgroundColor="LightGray"
+                Margin="5"/>
+                <Label
+                Margin="5"
+                HorizontalOptions="Center"
+                Text="Lista de Pessoas"
+                FontSize="Large"/>
+                <BoxView
+                HeightRequest="1"
+                BackgroundColor="LightGray"
+                Margin="5"/>
+                <ListView
+                SeparatorVisibility="Default"
+                RowHeight="30"
                 x:Name="listagem"
                 ItemsSource="{Binding ListaPessoas}">
-                <ListView.ItemTemplate>
-                    <DataTemplate>
-                        <TextCell Text="{Binding Nome}" Detail="{Binding CPF}"/>
-                    </DataTemplate>
-                </ListView.ItemTemplate>
-            </ListView>
-        </StackLayout>
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <ViewCell>
+                                <StackLayout Orientation="Horizontal" HorizontalOptions="Center">
+                                    <StackLayout Orientation="Horizontal">
+                                        <Label
+                                        Text="Nome: "
+                                        FontSize="Medium"/>
+                                        <Label
+                                        Text="{Binding Nome}"
+                                        HorizontalOptions="Center"
+                                        FontSize="Medium"
+                                        FontAttributes="Bold"/>
+                                    </StackLayout>
+                                    <StackLayout Orientation="Horizontal">
+                                        <Label
+                                        Text="|  CPF: "
+                                        FontSize="Medium"/>
+                                        <Label
+                                        Text="{Binding CPF}"
+                                        HorizontalOptions="Center"
+                                        FontSize="Medium"
+                                        FontAttributes="Bold"/>
+                                    </StackLayout>
+                                </StackLayout>
+                            </ViewCell>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
+            </StackLayout>
+        </ScrollView>
     </ContentPage.Content>
 </ContentPage>

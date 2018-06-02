@@ -31,6 +31,9 @@ namespace AppInicial.Views
             //Salvando item selecionado
             Helpers.GlobalHelp.PessoaSelecionada = itemSelecionado;
 
+            if (e.SelectedItem == null) return;
+            ((ListView)sender).SelectedItem = null;
+
             Navigation.PushAsync(new Views.DetalhePage());
         }
 
