@@ -11,7 +11,7 @@ namespace AppInicial
 		{
 			InitializeComponent();
 
-			MainPage = new MainPage();
+            MainPage = new NavigationPage(new Views.PrincipalPage());
 		}
 
 		protected override void OnStart ()

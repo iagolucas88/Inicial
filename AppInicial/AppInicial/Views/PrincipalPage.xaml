@@ -1,0 +1,31 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="AppInicial.Views.PrincipalPage">
+    <ContentPage.Content>
+        <StackLayout>
+        <Label
+                Margin="5"
+                Text="Cadastro"
+                FontSize="Large"/>
+            <Entry
+                Placeholder="Nome"
+                x:Name="nomePessoa"/>
+            <Entry
+                Placeholder="CPF"
+                x:Name="cpfPessoa"/>
+            <Button
+                Text="Adicionar"
+                x:Name="btnAdicionar"/>
+            <ListView
+                x:Name="listagem"
+                ItemsSource="{Binding ListaPessoas}">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <TextCell Text="{Binding Nome}" Detail="{Binding CPF}"/>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>
